@@ -1,19 +1,28 @@
+#include <algorithm>
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
+
 using namespace std;
 
 class Solution {
 public:
   vector<int> getConcatenation(vector<int> nums) {
-    vector<int> numms(nums.size() * 2);
-    int count = 0;
-    for (int i = 0; i < nums.size() * 2; i++) {
-      for (int j = 0; j < nums.size(); j++) {
-        numms[count > numms.size() ? numms.size() : count] = nums[j];
-        count++;
-      }
-    }
-    return numms;
+    vector<int> nummys = nums;
+    nummys.insert(nummys.end(), nums.begin(), nums.end());
+    return nummys;
   }
 };
+
+// Modified from Google Search AI
+void displayVector(const vector<int> &vec) {
+  cout << "Vector elements: ";
+  for (int x : vec)
+    cout << x << " ";
+}
+
+int main() {
+  displayVector(getConcatenation({1, 2, 1}));
+  displayVector(getConcatenation({1, 3, 2, 1})); 
+  return 0;
+}
