@@ -8,6 +8,7 @@ You should convert Celsius into Kelvin and Fahrenheit and return it as an array 
 Return the array `ans`. Answers within 10^-5 of the actual answer will be accepted.
 
 Note that:
+
 - Kelvin = Celsius + 273.15
 - Fahrenheit = Celsius * 1.80 + 32.00
 

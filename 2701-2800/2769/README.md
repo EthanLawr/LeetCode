@@ -7,7 +7,6 @@ Increase or decrease `x` by `1`, and *simultaneously* increase or decrease `num`
 
 Return the **maximum** possible value of `x`.
 
-
 ## Solutions
 
 - [C++.cpp](./C++.cpp) — C++
@@ -21,4 +20,3 @@ Return the **maximum** possible value of `x`.
 ## Notes
 
 - See code files for implementations.
-
