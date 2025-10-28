@@ -13,7 +13,7 @@ A curated collection of my LeetCode solutions — clean, focused, and multi-lang
 
 ## Quick links
 
-- Profile: https://leetcode.com/EthanLawr/
+- [Profile](https://leetcode.com/EthanLawr/)
 
 ## Why this repo
 
