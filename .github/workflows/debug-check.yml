@@ -16,7 +16,7 @@ jobs:
           set -e
           echo "Searching for common debug prints (console.log / console.debug / print(...))"
           # Search source files for debug-print patterns
-          matches=$(git grep -n --full-name -E "console\.log\(|console\.debug\(|\bprint\(" || true)
+          matches=$(git grep -n --full-name -E "console\.log\(|console\.debug\(|\bprint\(" -- ':!*.github/workflows/*' || true)
           if [ -n "$matches" ]; then
             echo "Found potential debug prints (these will fail the check):"
             echo "$matches"
