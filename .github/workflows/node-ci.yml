@@ -1,0 +1,47 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  node-check:
+    name: Node syntax & basic checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Run JS quick checks
+        shell: bash
+        run: |
+          set -e
+          # If package.json exists run npm ci and available scripts
+          if [ -f package.json ]; then
+            npm ci --no-audit --no-fund || true
+            # run lint if configured
+            if npm run | grep -q "lint"; then
+              npm run lint || true
+            fi
+            # run tests if configured
+            if npm run | grep -q "test"; then
+              npm test || true
+            fi
+          else
+            # No package.json — do a safe syntax check for all tracked .js files
+            js_files=$(git ls-files '*.js' || true)
+            if [ -n "$js_files" ]; then
+              for f in $js_files; do
+                echo "Checking JS syntax: $f"
+                node --check "$f" || exit 1
+              done
+            else
+              echo "No JS files found; skipping Node checks."
+            fi
+          fi

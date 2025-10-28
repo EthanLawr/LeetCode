@@ -1,4 +1,11 @@
+
 # LeetCode — EthanLawr
+
+[![Node CI](https://github.com/EthanLawr/LeetCode/actions/workflows/node-ci.yml/badge.svg)](https://github.com/EthanLawr/LeetCode/actions/workflows/node-ci.yml)
+[![Python CI](https://github.com/EthanLawr/LeetCode/actions/workflows/python-ci.yml/badge.svg)](https://github.com/EthanLawr/LeetCode/actions/workflows/python-ci.yml)
+[![Debug Check](https://github.com/EthanLawr/LeetCode/actions/workflows/debug-check.yml/badge.svg)](https://github.com/EthanLawr/LeetCode/actions/workflows/debug-check.yml)
+[![CodeQL](https://github.com/EthanLawr/LeetCode/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/EthanLawr/LeetCode/actions/workflows/codeql-analysis.yml)
+[![Dependabot Status](https://img.shields.io/badge/dependabot-enabled-blue)](https://github.com/EthanLawr/LeetCode/pulls?q=is%3Apr+is%3Aopen+label%3A%22dependencies%22)
 
 [![LeetCode Stats](https://leetcard.jacoblin.cool/EthanLawr?theme=catppuccinMocha&font=Commissioner&ext=activity)](https://leetcard.jacoblin.cool/EthanLawr?theme=catppuccinMocha&font=Commissioner&ext=activity)
 

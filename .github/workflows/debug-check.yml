@@ -1,0 +1,26 @@
+name: Debug prints detector
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  debug-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Search for debug prints
+        run: |
+          set -e
+          echo "Searching for common debug prints (console.log / console.debug / print(...))"
+          # Search source files for debug-print patterns
+          matches=$(git grep -n --full-name -E "console\.log\(|console\.debug\(|\bprint\(" || true)
+          if [ -n "$matches" ]; then
+            echo "Found potential debug prints (these will fail the check):"
+            echo "$matches"
+            exit 1
+          else
+            echo "No debug prints found."
+          fi
