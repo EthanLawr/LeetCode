@@ -68,8 +68,26 @@ jobs:
             echo "No C# project files detected; skipping .NET build."
           fi
 
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@v3
+      - name: Build C++ projects (manual)
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Attempt a simple compile of any .cpp files so CodeQL can analyze compiled artifacts.
+          # If you have a proper build system (CMake, Makefile), prefer invoking it here.
+          cpp_found=$(find . -name '*.cpp' -not -path './.git/*' -print -quit || true)
+          if [ -z "$cpp_found" ]; then
+            echo "No C++ source files detected; skipping C++ build."
+          else
+            echo "C++ source detected; compiling each .cpp into build-codeql/"
+            mkdir -p build-codeql
+            while IFS= read -r -d '' src; do
+              # create a reproducible output name
+              out="build-codeql/$(basename "$src" .cpp)"
+              echo "Compiling $src -> $out"
+              # compile with debug symbols to help CodeQL
+              g++ -std=c++17 -g -O0 -I. "$src" -o "$out" || true
+            done < <(find . -name '*.cpp' -not -path './.git/*' -print0)
+          fi
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
