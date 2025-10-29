@@ -8,11 +8,10 @@ Create a class `ArrayWrapper` that accepts an array of integers in its construct
 
 ## Solutions
 
-- [Javascript.js](./Javascript.js) — JavaScript
+- [JavaScript.js](./JavaScript.js) — JavaScript
+- [TypeScript.ts](./TypeScript.ts) — TypeScript
 
 ## Notes
-
-- See code for implementations.
 
 ### JavaScript Testing
 
@@ -26,3 +25,5 @@ console.log(obj1 + obj2); // 10
 console.log(String(obj1)) // "[1,2]"
 String(obj2); // "[3,4]"
 ```
+
+- See code for implementations.
