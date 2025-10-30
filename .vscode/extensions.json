@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "esbenp.prettier-vscode",
+        "ms-python.python",
+        "1YiB.nodejs-bundle",
+        "ZainChen.json",
+        "ms-vscode.cpptools",
+        "redhat.java"
+    ]
+}

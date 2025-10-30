@@ -128,3 +128,19 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Node / TypeScript
+node_modules/
+dist/
+
+# C#/dotnet
+bin/
+obj/
+
+# Logs
+*.log
